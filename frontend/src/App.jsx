@@ -48,7 +48,7 @@ function App() {
   return (
     <>
       <TaskList tasks={tasks} updateTask={openEditModal} updateCallback={onUpdate}/>
-      <button onClick={openCreateModal}>Create New Task</button>
+      <button className="taskButton" onClick={openCreateModal}>Create New Task</button>
       {isModalOpen && <div className = "modal">
         <div className="modal-content">
           <span className="close" onClick={closeModal}>&times;</span>

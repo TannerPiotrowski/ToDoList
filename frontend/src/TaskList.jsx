@@ -16,35 +16,37 @@ const TaskList = ({tasks, updateTask, updateCallback}) => {
             alet(error)
         }
     }
-    return <div>
-        <h1>To-Do:</h1>
-        <table>
-            <thread>
-                <tr>
-                    <th>Task Name</th>
-                    <th>Due Date</th>
-                    <th>Priority</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thread>
-            <tbody>
-                {tasks.map((task) => (
-                    <tr key = {task.id}>
-                        <td><button className="complete-button">Mark as complete</button></td>
-                        <td>{task.taskName}</td>
-                        <td>{task.dueDate}</td>
-                        <td>{task.priority}</td>
-                        <td>{task.status}</td>
-                        <td>
-                            <button onClick={() => updateTask(task)}>Update</button>
-                            <button onClick={() => onDelete(task.id)}>Delete</button>
-                        </td>
+    
+    return (
+        <div>
+            <h1>To-Do:</h1>
+            <table className="taskList">
+                    <tr>
+                        <th></th>
+                        <th>Task Name</th>
+                        <th>Due Date</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Actions</th>
                     </tr>
-                ))}
-            </tbody>
-        </table>
-    </div>
+                <tbody>
+                    {tasks.map((task) => (
+                        <tr key = {task.id}>
+                            <td><button className="completeButton"></button></td>
+                            <td>{task.taskName}</td>
+                            <td>{task.dueDate}</td>
+                            <td>{task.priority}</td>
+                            <td>{task.status}</td>
+                            <td>
+                                <button onClick={() => updateTask(task)}>Update</button>
+                                <button onClick={() => onDelete(task.id)}>Delete</button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    )
 }
 
 export default TaskList
