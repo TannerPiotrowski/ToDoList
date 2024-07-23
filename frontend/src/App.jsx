@@ -13,10 +13,16 @@ function App() {
   }, [])
 
   const fetchTasks = async () => {
-    const response = await fetch("http://127.0.0.1:5000/tasks")
-    const data = await response.json()
-    setTasks(data.tasks)
-    //console.log(data.tasks)
+    try {
+      const response = await fetch("http://127.0.0.1:5000/tasks");
+      const data = await response.json();
+      const sortedTasks = data.tasks.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
+      
+      setTasks(sortedTasks);
+      //console.log(sortedTasks); // debugging
+    } catch (error) {
+      console.error('Error fetching tasks:', error);
+    }
   };
 
   const closeModal = () => {

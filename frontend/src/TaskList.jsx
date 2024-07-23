@@ -17,7 +17,7 @@ const TaskList = ({tasks, updateTask, updateCallback}) => {
         }
     }
     return <div>
-        <h2>Tasks</h2>
+        <h1>To-Do:</h1>
         <table>
             <thread>
                 <tr>
@@ -31,12 +31,12 @@ const TaskList = ({tasks, updateTask, updateCallback}) => {
             <tbody>
                 {tasks.map((task) => (
                     <tr key = {task.id}>
+                        <td><button className="complete-button">Mark as complete</button></td>
                         <td>{task.taskName}</td>
                         <td>{task.dueDate}</td>
                         <td>{task.priority}</td>
                         <td>{task.status}</td>
                         <td>
-                            <button>Mark as complete</button>
                             <button onClick={() => updateTask(task)}>Update</button>
                             <button onClick={() => onDelete(task.id)}>Delete</button>
                         </td>

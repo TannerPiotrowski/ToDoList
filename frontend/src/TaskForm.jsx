@@ -48,7 +48,7 @@ const TaskForm = ({existingTask = {}, updateCallback}) => {
             <div>
                 <label htmlFor="dueDate">Due Date:</label>
                 <input 
-                    type="text"
+                    type="date"
                     id="dueDate"
                     value={dueDate}
                     onChange={(e) => setDueDate(e.target.value)}
@@ -57,20 +57,27 @@ const TaskForm = ({existingTask = {}, updateCallback}) => {
             <div>
                 <label htmlFor="priority">Priority:</label>
                 <input 
-                    type="text"
+                    type="number"
                     id="priority"
                     value={priority}
                     onChange={(e) => setPriority(e.target.value)}
+                    min="1"
+                    max="10"
                 />
             </div>
             <div>
                 <label htmlFor="status">Status:</label>
-                <input 
-                    type="text"
+                <select
                     id="status"
                     value={status}
-                    onChange={(e) => setStatus(e.target.value)}
-                />
+                    onChange={(e) => setStatus(e.target.value)}>
+
+                    <option value="">Select Status</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In-Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+
             </div>
             <button type="submit">{updating ? 'Update' : 'Create Task'}</button>
         </form>
