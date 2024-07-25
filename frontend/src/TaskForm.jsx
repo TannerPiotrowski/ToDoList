@@ -37,7 +37,7 @@ const TaskForm = ({existingTask = {}, updateCallback}) => {
     return (
         <form onSubmit={onSubmit}>
             <div>
-                <label htmlFor="taskName">Task Name:</label>
+                <label htmlFor="taskName">Task Name: </label>
                 <input 
                     type="text"
                     id="taskName"
@@ -46,7 +46,7 @@ const TaskForm = ({existingTask = {}, updateCallback}) => {
                 />
             </div>
             <div>
-                <label htmlFor="dueDate">Due Date:</label>
+                <label htmlFor="dueDate">Due Date: </label>
                 <input 
                     type="date"
                     id="dueDate"
@@ -55,7 +55,7 @@ const TaskForm = ({existingTask = {}, updateCallback}) => {
                 />
             </div>
             <div>
-                <label htmlFor="priority">Priority:</label>
+                <label htmlFor="priority">Priority: </label>
                 <input 
                     type="number"
                     id="priority"
@@ -66,7 +66,7 @@ const TaskForm = ({existingTask = {}, updateCallback}) => {
                 />
             </div>
             <div>
-                <label htmlFor="status">Status:</label>
+                <label htmlFor="status">Status: </label>
                 <select
                     id="status"
                     value={status}
@@ -79,7 +79,7 @@ const TaskForm = ({existingTask = {}, updateCallback}) => {
                 </select>
 
             </div>
-            <button type="submit">{updating ? 'Update' : 'Create Task'}</button>
+            <button className="modalButton" type="submit">{updating ? 'Update' : 'Create Task'}</button>
         </form>
     )
 }

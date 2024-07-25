@@ -31,15 +31,41 @@ const TaskList = ({tasks, updateTask, updateCallback}) => {
                     </tr>
                 <tbody>
                     {tasks.map((task) => (
-                        <tr key = {task.id}>
+                        <tr className="task" key = {task.id}>
                             <td><button className="completeButton"></button></td>
                             <td>{task.taskName}</td>
                             <td>{task.dueDate}</td>
                             <td>{task.priority}</td>
                             <td>{task.status}</td>
                             <td>
-                                <button onClick={() => updateTask(task)}>Update</button>
-                                <button onClick={() => onDelete(task.id)}>Delete</button>
+                                <button className="actionButton" onClick={() => updateTask(task)}>Update</button>
+                                <button className="actionButton" onClick={() => onDelete(task.id)}>Delete</button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+            <h1>Completed:</h1>
+            <table className="completedTaskList">
+                    <tr>
+                        <th></th>
+                        <th>Task Name</th>
+                        <th>Due Date</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                <tbody>
+                    {tasks.map((task) => (
+                        <tr className="task" key = {task.id}>
+                            <td><button className="completeButton"></button></td>
+                            <td>{task.taskName}</td>
+                            <td>{task.dueDate}</td>
+                            <td>{task.priority}</td>
+                            <td>{task.status}</td>
+                            <td>
+                                <button className="actionButton" onClick={() => updateTask(task)}>Update</button>
+                                <button className="actionButton" onClick={() => onDelete(task.id)}>Delete</button>
                             </td>
                         </tr>
                     ))}
