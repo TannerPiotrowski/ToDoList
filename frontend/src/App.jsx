@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react'
 import TaskList from './TaskList'
 import './App.css'
 import TaskForm from './TaskForm'
+import CompletedList from './CompletedList'
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([])
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [currentTask, setCurrentTask] = useState({})
 
@@ -17,7 +18,6 @@ function App() {
       const response = await fetch("http://127.0.0.1:5000/tasks");
       const data = await response.json();
       const sortedTasks = data.tasks.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
-      
       setTasks(sortedTasks);
       //console.log(sortedTasks); // debugging
     } catch (error) {
@@ -56,6 +56,7 @@ function App() {
         </div>
       </div>
       }
+      {/*<CompletedList complete={complete} updateTask={openEditModal} updateCallback={onUpdate}/>*/}
     </>
   );
 }

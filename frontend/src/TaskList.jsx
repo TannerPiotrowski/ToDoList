@@ -16,6 +16,22 @@ const TaskList = ({tasks, updateTask, updateCallback}) => {
             alet(error)
         }
     }
+
+    const moveTask = async (id) => {
+        try {
+            const options = {
+                method: "POST"
+            }
+            const response = await fetch(`http://127.0.0.1:5000/complete_task/${id}`, options)
+            if (response.status === 200) {
+                updateCallback()
+            }else{
+                console.error("Failed to move task")
+            }
+        } catch (error) {
+            alet(error)
+        }
+    }
     
     return (
         <div>
@@ -32,7 +48,7 @@ const TaskList = ({tasks, updateTask, updateCallback}) => {
                 <tbody>
                     {tasks.map((task) => (
                         <tr className="task" key = {task.id}>
-                            <td><button className="completeButton"></button></td>
+                            <td><button className="completeButton" onClick={() => moveTask(task.id)}></button></td>
                             <td>{task.taskName}</td>
                             <td>{task.dueDate}</td>
                             <td>{task.priority}</td>
@@ -45,7 +61,7 @@ const TaskList = ({tasks, updateTask, updateCallback}) => {
                     ))}
                 </tbody>
             </table>
-            <h1>Completed:</h1>
+            <h1>Complete:</h1>
             <table className="completedTaskList">
                     <tr>
                         <th></th>
@@ -58,7 +74,7 @@ const TaskList = ({tasks, updateTask, updateCallback}) => {
                 <tbody>
                     {tasks.map((task) => (
                         <tr className="task" key = {task.id}>
-                            <td><button className="completeButton"></button></td>
+                            <td><button className="completeButton" onClick={() => moveTask(task.id)}></button></td>
                             <td>{task.taskName}</td>
                             <td>{task.dueDate}</td>
                             <td>{task.priority}</td>
