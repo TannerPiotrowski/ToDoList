@@ -1,4 +1,5 @@
-import React from "react"
+import React, {useState} from "react"
+import Switch from './Components/switch'
 
 const TaskList = ({tasks, updateTask, updateCallback}) => {
     const onDelete = async (id) => {
@@ -32,35 +33,90 @@ const TaskList = ({tasks, updateTask, updateCallback}) => {
             alet(error)
         }
     }
+
+    const [isToggled, setIsToggled] = useState(false);
     
     return (
         <div>
             <h1>To-Do:</h1>
-            <table className="taskList">
-                    <tr>
-                        <th></th>
-                        <th>Task Name</th>
-                        <th>Due Date</th>
-                        <th>Priority</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                <tbody>
+                <div className = "mainContainer"> {/*holder of all tasks*/} 
+                    <div className = "switchContainer">
+                        To Do
+                        <Switch rounded={true} isToggled={isToggled} onToggle={() => setIsToggled(!isToggled)} />
+                        Completed
+                    </div>
+                   
                     {tasks.map((task) => (
-                        <tr className="task" key = {task.id}>
-                            <td><button className="completeButton" onClick={() => moveTask(task.id)}></button></td>
-                            <td>{task.taskName}</td>
-                            <td>{task.dueDate}</td>
-                            <td>{task.priority}</td>
-                            <td>{task.status}</td>
-                            <td>
-                                <button className="actionButton" onClick={() => updateTask(task)}>Update</button>
-                                <button className="actionButton" onClick={() => onDelete(task.id)}>Delete</button>
-                            </td>
-                        </tr>
+
+                        <div className = "individualTask"> {/*Individual task*/}
+                            
+                            <h2 key = {task.id}>
+
+                                <ul className="task">
+
+                                    <li><button className="completeButton" onClick={() => moveTask(task.id)}></button></li>
+                                    <li>{task.taskName}</li>
+                                    <li>{task.dueDate}</li>
+                                    <li>{task.priority}</li>
+                                    <li>{task.status}</li>
+                                    <li>
+                                        <button className="actionButton" onClick={() => updateTask(task)}>Update</button>
+                                        <button className="actionButton" onClick={() => onDelete(task.id)}>Delete</button>
+                                    </li>
+
+                                </ul>
+
+                            </h2>
+
+                        </div>
+
                     ))}
-                </tbody>
-            </table>
+                    
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="taskHeaderContainer">
+                <h2>
+                    <ul class="taskHeaderList">
+                        <li></li>
+                        <li>Task Name</li>
+                        <li>Due Date</li>
+                        <li>Priority</li>
+                        <li>Status</li>
+                        <li>Actions</li>
+                    </ul>
+                </h2>
+            </div>
+            <div className="taskListContainer">
+                {tasks.map((task) => (
+                    <div class="taskHeaderContainer"> 
+                        <h2 key = {task.id}>
+                            <ul className="taskList">
+                                <li><button className="completeButton" onClick={() => moveTask(task.id)}></button></li>
+                                <li>{task.taskName}</li>
+                                <li>{task.dueDate}</li>
+                                <li>{task.priority}</li>
+                                <li>{task.status}</li>
+                                <li>
+                                    <button className="actionButton" onClick={() => updateTask(task)}>Update</button>
+                                    <button className="actionButton" onClick={() => onDelete(task.id)}>Delete</button>
+                                </li>
+                            </ul>
+                        </h2>
+                    </div>
+                ))}
+            </div>
             <h1>Complete:</h1>
             <table className="completedTaskList">
                     <tr>
