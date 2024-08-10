@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import TaskList from './TaskList'
+import TaskList from './Components/TaskList'
 import './App.css'
 import TaskForm from './TaskForm'
-import CompletedList from './CompletedList'
+import Navbar from './Components/navbar'
 
 function App() {
   const [tasks, setTasks] = useState([])
@@ -47,6 +47,7 @@ function App() {
 
   return (
     <>
+      <Navbar />
       <TaskList tasks={tasks} updateTask={openEditModal} updateCallback={onUpdate}/>
       <button className="taskButton" onClick={openCreateModal}>Create New Task</button>
       {isModalOpen && <div className = "modal">

@@ -1,5 +1,11 @@
 import React, {useState} from "react"
-import Switch from './Components/switch'
+import Switch from "./switch"
+import "./TaskList.css"
+import Checkbox from '@mui/material/Checkbox';
+import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
+import DoneIcon from '@mui/icons-material/Done';
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
+import TaskAltIcon from '@mui/icons-material/TaskAlt';
 
 const TaskList = ({tasks, updateTask, updateCallback}) => {
     const onDelete = async (id) => {
@@ -38,41 +44,40 @@ const TaskList = ({tasks, updateTask, updateCallback}) => {
     
     return (
         <div>
-            <h1>To-Do:</h1>
-                <div className = "mainContainer"> {/*holder of all tasks*/} 
-                    <div className = "switchContainer">
-                        To Do
-                        <Switch rounded={true} isToggled={isToggled} onToggle={() => setIsToggled(!isToggled)} />
-                        Completed
-                    </div>
-                   
-                    {tasks.map((task) => (
-
-                        <div className = "individualTask"> {/*Individual task*/}
-                            
-                            <h2 key = {task.id}>
-
-                                <ul className="task">
-
-                                    <li><button className="completeButton" onClick={() => moveTask(task.id)}></button></li>
-                                    <li>{task.taskName}</li>
-                                    <li>{task.dueDate}</li>
-                                    <li>{task.priority}</li>
-                                    <li>{task.status}</li>
-                                    <li>
-                                        <button className="actionButton" onClick={() => updateTask(task)}>Update</button>
-                                        <button className="actionButton" onClick={() => onDelete(task.id)}>Delete</button>
-                                    </li>
-
-                                </ul>
-
-                            </h2>
-
-                        </div>
-
-                    ))}
-                    
+            <div className = "mainContainer"> {/*holder of all tasks*/} 
+                <div className = "switchContainer">
+                    <Switch rounded={true} isToggled={isToggled} onToggle={() => setIsToggled(!isToggled)} />
                 </div>
+                <div clasName="descriptor">
+                    <h2>
+                        <ul className="taskHeader">
+                            <li></li>
+                            <li>Task</li>
+                            <li>Date</li>
+                            <li>Priority</li>
+                            <li>Status</li>
+                            <li></li>
+                        </ul>
+                    </h2>
+                </div>
+                {tasks.map((task) => (
+                    <div className = "individualTask"> {/*Individual task*/}
+                        <h2 key = {task.id}>
+                            <ul className="task">
+                                <li><Checkbox icon={<RadioButtonUncheckedIcon fontSize="large"/>} checkedIcon={<TaskAltIcon fontSize="large"/>} /></li>
+                                <li>{task.taskName}</li>
+                                <li>{task.dueDate}</li>
+                                <li>{task.priority}</li>
+                                <li>{task.status}</li>
+                                <li>
+                                    <button className="actionButton" onClick={() => updateTask(task)}>Update</button>
+                                    <button className="actionButton" onClick={() => onDelete(task.id)}>Delete</button>
+                                </li>
+                            </ul>
+                        </h2>
+                    </div>
+                ))}  
+            </div>
 
 
 
@@ -85,7 +90,7 @@ const TaskList = ({tasks, updateTask, updateCallback}) => {
 
 
 
-
+            {/*
             <div class="taskHeaderContainer">
                 <h2>
                     <ul class="taskHeaderList">
@@ -143,6 +148,7 @@ const TaskList = ({tasks, updateTask, updateCallback}) => {
                     ))}
                 </tbody>
             </table>
+            */}
         </div>
     )
 }

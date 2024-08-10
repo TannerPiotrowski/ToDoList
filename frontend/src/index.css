@@ -7,37 +7,38 @@ input {
   margin-top: 10px;
 }
 
-.taskHeaderContainer {
+
+/*.taskHeaderContainer {
   border: 1pt solid black;
   padding: 8px;
-}
+}*/
 
-.taskHeaderList {
+/*.taskHeaderList {
   display: flex;
-  justify-content: space-around; /* Evenly space the items */
-  width: 100%;                   /* Ensure it takes up the full width of the container */
-  list-style-type: none;         /* Remove bullet points */
-  padding: 0;                    /* Remove default padding */
+  justify-content: space-around; /* Evenly space the items 
+  width: 100%;                   /* Ensure it takes up the full width of the container 
+  list-style-type: none;         /* Remove bullet points 
+  padding: 0;                    /* Remove default padding 
   margin: 0; 
 }
 
 .taskHeaderList li {
-  flex: 1; /* Ensure each list item takes up equal space */
-  text-align: center; /* Center align text within each list item */
+  flex: 1; /* Ensure each list item takes up equal space 
+  text-align: center; /* Center align text within each list item 
 }
 
 /*.taskListContainer {
   padding: 8px;
-}*/
+}
 
 
 .taskContainer {
   display: flex;
-  justify-content: space-around; /* Evenly space the items */
-  width: 100%;                   /* Ensure it takes up the full width of the container */
-  list-style-type: none;         /* Remove bullet points */
-  padding: 8px;                    /* Remove default padding */ 
-  margin: 0;                     /* Remove default margin */
+  justify-content: space-around; /* Evenly space the items 
+  width: 100%;                   /* Ensure it takes up the full width of the container 
+  list-style-type: none;         /* Remove bullet points 
+  padding: 8px;                    /* Remove default padding 
+  margin: 0;                     /* Remove default margin 
   border: 1pt solid black;
   align-items: center;
   text-align: center;
@@ -47,16 +48,16 @@ input {
   border: 1pt solid black;
   padding: 8px;
   display: flex;
-  justify-content: space-around; /* Evenly space the items */
-  width: 100%;                   /* Ensure it takes up the full width of the container */
-  list-style-type: none;         /* Remove bullet points */
-  padding: 0;                    /* Remove default padding */
+  justify-content: space-around; /* Evenly space the items 
+  width: 100%;                   /* Ensure it takes up the full width of the container 
+  list-style-type: none;         /* Remove bullet points 
+  padding: 0;                    /* Remove default padding 
   margin: 0;
 }
 
 .taskList li {
-  flex: 1; /* Ensure each list item takes up equal space */
-  text-align: center; /* Center align text within each list item */
+  flex: 1; /* Ensure each list item takes up equal space 
+  text-align: center; /* Center align text within each list item 
 }
 
 .taskList, .taskHeaderList, .completedTaskList {
@@ -83,7 +84,7 @@ input {
   background-color: #04AA6D;
   color: white;
   font-size: 2em;
-}
+}*/
 
 h1 {
   color: #6A7152;
@@ -92,38 +93,10 @@ h1 {
   text-align: center;
 }
 
-.task {
-  border: 1pt solid black;
-}
-
-td {
-  font-size: 1.5em;
-}
-
-
 .taskButton {
   display: block;
   margin: auto;
   font-size: 1.5em
-}
-
-.completeButton {
-  width: 50px; /* Adjust the size as needed */
-  height: 50px; /* Adjust the size as needed */
-  background-color: transparent;
-  border: 2px solid #4CAF50; /* Border color */
-  border-radius: 50%;
-  cursor: pointer;
-  outline: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.completeButton.checked {
-  background-color: #63D471; /* Change the color when checked */
-  color: white;
 }
 
 button {
@@ -148,8 +121,4 @@ button:focus-visible {
 
 .taskButton, .modalButton {
   margin-top: 10px;
-}
-
-.actionButton {
-  margin-right: 10px;
 }

@@ -1,0 +1,78 @@
+.mainContainer {
+    background-color: rgb(65, 64, 64);
+    border: 1px solid;
+    border-radius: 20px;
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 20px;
+}
+
+/*.switchContainer {
+    margin-left: 30px;
+}*/
+
+.taskHeader {
+    display: flex;
+    justify-content: space-around; /* Evenly space the items */
+    width: 100%;                   /* Ensure it takes up the full width of the container */
+    list-style-type: none;         /* Remove bullet points */
+    padding: 0;                    /* Remove default padding */
+    margin: 0; 
+
+    /*border: 1pt solid black;*/   
+}
+
+.taskHeader li {
+    display: flex;
+    flex: 1; /* Ensure each list item takes up equal space */
+    text-align: center; /* Center align text within each list item */
+    margin: auto;
+    padding: 0;    
+}
+
+.task {
+    display: flex;
+    justify-content: space-around; /* Evenly space the items */
+    width: 100%;                   /* Ensure it takes up the full width of the container */
+    list-style-type: none;         /* Remove bullet points */
+    padding: 0;                    /* Remove default padding */
+    margin: 0; 
+
+    /*border: 1pt solid black;*/
+}
+
+.task li {
+    display: flex;
+    flex: 1; /* Ensure each list item takes up equal space */
+    text-align: center; /* Center align text within each list item */
+    margin: auto;
+    padding: 0;
+}
+
+.completeButton {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px; /* Adjust the size as needed */
+    background-color: transparent;
+    border: 2px solid #4CAF50; /* Border color */
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.completeButton.checked {
+    background-color: #63D471; /* Change the color when checked */
+    color: white;
+}
+
+.actionButton {
+    margin-right: 10px;
+}
