@@ -47,8 +47,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <TaskList tasks={tasks} updateTask={openEditModal} updateCallback={onUpdate}/>
+      {/*<Navbar />*/}
       <button className="taskButton" onClick={openCreateModal}>Create New Task</button>
       {isModalOpen && <div className = "modal">
         <div className="modal-content">
@@ -57,6 +56,7 @@ function App() {
         </div>
       </div>
       }
+      <TaskList tasks={tasks} updateTask={openEditModal} updateCallback={onUpdate}/>
       {/*<CompletedList complete={complete} updateTask={openEditModal} updateCallback={onUpdate}/>*/}
     </>
   );

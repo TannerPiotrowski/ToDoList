@@ -2,10 +2,11 @@ import React, {useState} from "react"
 import Switch from "./switch"
 import "./TaskList.css"
 import Checkbox from '@mui/material/Checkbox';
-import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
-import DoneIcon from '@mui/icons-material/Done';
+import IconButton from '@mui/material/IconButton';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const TaskList = ({tasks, updateTask, updateCallback}) => {
     const onDelete = async (id) => {
@@ -70,8 +71,12 @@ const TaskList = ({tasks, updateTask, updateCallback}) => {
                                 <li>{task.priority}</li>
                                 <li>{task.status}</li>
                                 <li>
-                                    <button className="actionButton" onClick={() => updateTask(task)}>Update</button>
-                                    <button className="actionButton" onClick={() => onDelete(task.id)}>Delete</button>
+                                    <IconButton aria-label="delete" onClick={() => updateTask(task)}>
+                                        <EditIcon fontSize="large"/>
+                                    </IconButton>                     
+                                    <IconButton aria-label="delete" onClick={() => onDelete(task.id)}>
+                                        <DeleteIcon fontSize="large"/>
+                                    </IconButton>
                                 </li>
                             </ul>
                         </h2>
