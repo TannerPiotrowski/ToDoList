@@ -3,8 +3,8 @@ import {useState} from "react"
 const TaskForm = ({existingTask = {}, updateCallback}) => {
     const [taskName, setTaskName] = useState(existingTask.taskName || "");
     const [dueDate, setDueDate] = useState(existingTask.dueDate || "");
-    const [priority, setPriority] = useState(existingTask.priority || "");
-    const [status, setStatus] = useState(existingTask.status || "");
+    /*const [priority, setPriority] = useState(existingTask.priority || "");
+    const [status, setStatus] = useState(existingTask.status || "");*/
 
     const updating = Object.entries(existingTask).length !== 0
 
@@ -14,8 +14,8 @@ const TaskForm = ({existingTask = {}, updateCallback}) => {
         const data = {
             taskName,
             dueDate,
-            priority,
-            status
+            /*priority,
+            status*/
         }
         const url = "http://127.0.0.1:5000/" + (updating ? `update_task/${existingTask.id}` : "create_task")
         const options = {
@@ -54,7 +54,7 @@ const TaskForm = ({existingTask = {}, updateCallback}) => {
                     onChange={(e) => setDueDate(e.target.value)}
                 />
             </div>
-            <div>
+            {/*<div>
                 <label htmlFor="priority">Priority: </label>
                 <input 
                     type="number"
@@ -78,7 +78,7 @@ const TaskForm = ({existingTask = {}, updateCallback}) => {
                     <option value="Completed">Completed</option>
                 </select>
 
-            </div>
+            </div>*/}
             <button className="modalButton" type="submit">{updating ? 'Update' : 'Create Task'}</button>
         </form>
     )

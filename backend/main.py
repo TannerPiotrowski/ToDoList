@@ -33,16 +33,16 @@ def get_tasks():
 def create_task():
     taskName = request.json.get("taskName")
     dueDate = request.json.get("dueDate")
-    priority = request.json.get("priority")
-    status = request.json.get("status")
+    #priority = request.json.get("priority")
+    #status = request.json.get("status")
 
-    if not taskName or not dueDate or not priority or not status:
+    if not taskName or not dueDate: #or not priority or not status:
         return (
-            jsonify({"message": "You must include a task name, due date, priority, or status"}),
+            jsonify({"message": "You must include a task name or due date."}),
         400,
     )
 
-    new_task = Task(taskName = taskName, dueDate = dueDate, priority = priority, status = status)
+    new_task = Task(taskName = taskName, dueDate = dueDate)#, priority = priority, status = status)
     try:
         db.session.add(new_task)
         db.session.commit()
@@ -61,8 +61,8 @@ def update_task(task_id):
     data = request.json
     task.taskName = data.get("taskName", task.taskName)
     task.dueDate = data.get("dueDate", task.dueDate)
-    task.priority = data.get("priority", task.priority)
-    task.status = data.get("status", task.status)
+    #task.priority = data.get("priority", task.priority)
+    #task.status = data.get("status", task.status)
 
     db.session.commit()
 

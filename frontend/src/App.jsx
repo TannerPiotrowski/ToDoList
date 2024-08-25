@@ -3,6 +3,7 @@ import TaskList from './Components/TaskList'
 import './App.css'
 import TaskForm from './TaskForm'
 import Navbar from './Components/navbar'
+import Header from './Components/header'
 
 function App() {
   const [tasks, setTasks] = useState([])
@@ -47,17 +48,19 @@ function App() {
 
   return (
     <>
-      {/*<Navbar />*/}
-      <button className="taskButton" onClick={openCreateModal}>Create New Task</button>
-      {isModalOpen && <div className = "modal">
-        <div className="modal-content">
-          <span className="close" onClick={closeModal}>&times;</span>
-          <TaskForm existingTask={currentTask} updateCallback={onUpdate}/>
+      <Header />
+      <div className='card'>
+        <button className="taskButton" onClick={openCreateModal}>Create New Task</button>
+        {isModalOpen && <div className = "modal">
+          <div className="modal-content">
+            <span className="close" onClick={closeModal}>&times;</span>
+            <TaskForm existingTask={currentTask} updateCallback={onUpdate}/>
+          </div>
         </div>
+        }
+        <TaskList tasks={tasks} updateTask={openEditModal} updateCallback={onUpdate}/>
+        {/*<CompletedList complete={complete} updateTask={openEditModal} updateCallback={onUpdate}/>*/}
       </div>
-      }
-      <TaskList tasks={tasks} updateTask={openEditModal} updateCallback={onUpdate}/>
-      {/*<CompletedList complete={complete} updateTask={openEditModal} updateCallback={onUpdate}/>*/}
     </>
   );
 }

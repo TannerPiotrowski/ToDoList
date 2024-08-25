@@ -2,6 +2,20 @@ html {
   background-color: black;
 }
 
+.card {
+  border: 1px solid;
+  border-radius: 20px;
+
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 20px;
+  position: relative;
+}
+
 .modal {
   position: fixed;
   z-index: 1;

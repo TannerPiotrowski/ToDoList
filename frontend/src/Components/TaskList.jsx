@@ -25,22 +25,6 @@ const TaskList = ({tasks, updateTask, updateCallback}) => {
         }
     }
 
-    const moveTask = async (id) => {
-        try {
-            const options = {
-                method: "POST"
-            }
-            const response = await fetch(`http://127.0.0.1:5000/complete_task/${id}`, options)
-            if (response.status === 200) {
-                updateCallback()
-            }else{
-                console.error("Failed to move task")
-            }
-        } catch (error) {
-            alet(error)
-        }
-    }
-
     const [isToggled, setIsToggled] = useState(false);
     
     return (
@@ -55,8 +39,8 @@ const TaskList = ({tasks, updateTask, updateCallback}) => {
                             <li></li>
                             <li>Task</li>
                             <li>Date</li>
-                            <li>Priority</li>
-                            <li>Status</li>
+                            {/*<li>Priority</li>
+                            <li>Status</li>}*/}
                             <li></li>
                         </ul>
                     </h2>
@@ -68,8 +52,8 @@ const TaskList = ({tasks, updateTask, updateCallback}) => {
                                 <li><Checkbox icon={<RadioButtonUncheckedIcon fontSize="large"/>} checkedIcon={<TaskAltIcon fontSize="large"/>} /></li>
                                 <li>{task.taskName}</li>
                                 <li>{task.dueDate}</li>
-                                <li>{task.priority}</li>
-                                <li>{task.status}</li>
+                                {/*<li>{task.priority}</li>
+                                <li>{task.status}</li>*/}
                                 <li>
                                     <IconButton aria-label="delete" onClick={() => updateTask(task)}>
                                         <EditIcon fontSize="large"/>
